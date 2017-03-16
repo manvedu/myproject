@@ -1,0 +1,12 @@
+version: '0'
+services:
+  web:
+    image: fluvip/influtech:17
+    shm_size: 128m
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./:/myproject"
+    env_file: .env
+    command: bundle exec rails s -p 3000 -b "0.0.0.0"
